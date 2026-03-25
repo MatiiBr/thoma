@@ -19,11 +19,20 @@ export function useScrollReveal(
     const container = containerRef.current
     if (!container) return
 
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
     const observers: IntersectionObserver[] = []
 
     reveals.forEach(({ selector, y = 40, duration = 0.7, stagger = 0, delay = 0 }) => {
       const elements = container.querySelectorAll(selector)
       if (elements.length === 0) return
+
+      // Skip animations for reduced motion preference
+      if (prefersReduced) {
+        gsap.set(elements, { y: 0, opacity: 1 })
+        return
+      }
 
       // Hide initially
       gsap.set(elements, { y, opacity: 0 })

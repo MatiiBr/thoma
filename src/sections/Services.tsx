@@ -73,7 +73,7 @@ export default function Services() {
               key={service.title}
               className="service-card group rounded-2xl border border-muted/15 bg-background p-8 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
             >
-              <span className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 font-mono text-lg text-accent">
+              <span aria-hidden="true" className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 font-mono text-lg text-accent">
                 {service.icon}
               </span>
 

@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         {/* Links */}
-        <div className="flex gap-16">
+        <div className="flex gap-10 sm:gap-16">
           {footerLinks.map((group) => (
             <div key={group.title}>
               <h4 className="font-heading text-sm font-semibold uppercase tracking-wider">

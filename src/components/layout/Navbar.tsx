@@ -110,8 +110,10 @@ export default function Navbar() {
         {/* Mobile Hamburger */}
         <button
           onClick={toggleMobile}
-          className="flex flex-col gap-1.5 md:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           <span
             className={`h-0.5 w-6 bg-foreground transition-transform duration-300 ${mobileOpen ? 'translate-y-2 rotate-45' : ''}`}
@@ -127,14 +129,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="border-t border-muted/20 bg-background/95 backdrop-blur-lg md:hidden">
+        <div id="mobile-menu" className="border-t border-muted/20 bg-background/95 backdrop-blur-lg md:hidden">
           <ul className="flex flex-col gap-4 px-6 py-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="mobile-link block text-lg font-medium text-muted transition-colors hover:text-foreground"
+                  className="mobile-link block py-2 text-lg font-medium text-muted transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </a>

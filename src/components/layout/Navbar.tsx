@@ -77,7 +77,9 @@ export default function Navbar() {
 
   return (
     <header ref={navRef} className="fixed top-0 z-50 w-full">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between py-4">
+      {/* Gradient fade background */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background via-background/80 to-transparent" />
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between py-4">
         {/* Logo */}
         <a href="#" className="text-2xl font-bold font-heading tracking-tight">
           Thoma<span className="text-accent">.</span>
